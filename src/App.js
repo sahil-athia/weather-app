@@ -6,14 +6,14 @@ import axios from 'axios';
 
 function App() {
   const [data, setData] = useState(false)
-  const [location, setLocation] = useState("")
+  const [location, setLocation] = useState("") 
 
   useEffect(() => {
     axios
-      .get(`http://api.weatherapi.com/v1/current.json?key=${process.env.REACT_APP_API}&q=London&aqi=no`)
+      .get(`http://api.weatherapi.com/v1/current.json?key=${process.env.REACT_APP_API}&q=${location}&aqi=no`)
       .then(response => setData(response.data))
-  }, [])
-
+  }, [location])
+  console.log(data)
 const handleSubmit = (event) => {
     event.preventDefault() 
 }
