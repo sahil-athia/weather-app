@@ -17,7 +17,7 @@ function App() {
       .catch(e => setError(true))
   }, [location])
 
-  
+  console.log(data)
   const handleSubmit = (event) => {
       event.preventDefault() 
       
@@ -38,7 +38,11 @@ function App() {
         </Form.Group>
       </Form>
       {error && <div>The weather for this location could not be found</div>}
-      {data && !error && <div>{data.location.name}</div>}
+      {data && !error && 
+      <div>
+          <span>{data.location.name}</span> <br></br>
+          <span>it is: {data.current.feelslike_c} degrees celcius</span>
+      </div>}
     </div>
   );
 }
