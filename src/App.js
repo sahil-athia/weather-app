@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import { useEffect, useState } from 'react'
 import { Form, Button } from 'react-bootstrap';
@@ -7,16 +6,22 @@ import axios from 'axios';
 function App() {
   const [data, setData] = useState(false)
   const [location, setLocation] = useState("") 
-
+  const [error, setError] = useState(false)
   useEffect(() => {
     axios
       .get(`http://api.weatherapi.com/v1/current.json?key=${process.env.REACT_APP_API}&q=${location}&aqi=no`)
-      .then(response => setData(response.data))
+      .then(response => {
+        setData(response.data)
+        setError(false)
+      })
+      .catch(e => setError(true))
   }, [location])
-  console.log(data)
-const handleSubmit = (event) => {
-    event.preventDefault() 
-}
+
+  
+  const handleSubmit = (event) => {
+      event.preventDefault() 
+      
+  }
 
   return (
     <div className="App">
@@ -32,8 +37,8 @@ const handleSubmit = (event) => {
           />
         </Form.Group>
       </Form>
-  
-      {data && <div>{data.location.name}</div>}
+      {error && <div>The weather for this location could not be found</div>}
+      {data && !error && <div>{data.location.name}</div>}
     </div>
   );
 }
