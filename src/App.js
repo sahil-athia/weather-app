@@ -7,6 +7,7 @@ function App() {
   const [data, setData] = useState(false)
   const [location, setLocation] = useState("") 
   const [error, setError] = useState(false)
+
   useEffect(() => {
     axios
       .get(`http://api.weatherapi.com/v1/current.json?key=${process.env.REACT_APP_API}&q=${location}&aqi=no`)
@@ -18,10 +19,16 @@ function App() {
   }, [location])
 
   // console.log(data)
-  
+
   const handleSubmit = (event) => {
       event.preventDefault() 
       
+  }
+
+  const curr_time = () => {
+    const str = data.location.localtime;
+    const hour = str[11] + str[12]
+    return Number(hour)
   }
 
   return (
@@ -44,6 +51,7 @@ function App() {
           <span>{data.location.name}</span> <br></br>
           <span>it is: {data.current.feelslike_c} degrees celcius</span>
           <img src={data.current.condition.icon}></img>
+          <span>{curr_time()}</span>
       </div>}
     </div>
   );
