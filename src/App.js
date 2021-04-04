@@ -36,11 +36,11 @@ function App() {
   const time = data ? curr_time() : ""
 
   const appClass = classNames('app', {
-    'app--morning': 7 <= time <= 17,
+    'app--morning': 7 < time < 17,
     'app--sunrise': 6 <= time <=7,
     'app--sunset': 17 <= time <= 18,
-    'app--evening': 18 <= time <= 21,
-    'app--night': (21 <= time <= 24) || 0 <= curr_time <= 6
+    'app--evening': 18 < time < 21,
+    'app--night': (21 <= time <= 24) || 0 < curr_time < 6
   });
 
   return (
