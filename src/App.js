@@ -17,7 +17,8 @@ function App() {
       .catch(e => setError(true))
   }, [location])
 
-  console.log(data)
+  // console.log(data)
+  
   const handleSubmit = (event) => {
       event.preventDefault() 
       
@@ -42,6 +43,7 @@ function App() {
       <div>
           <span>{data.location.name}</span> <br></br>
           <span>it is: {data.current.feelslike_c} degrees celcius</span>
+          <img src={data.current.condition.icon}></img>
       </div>}
     </div>
   );
