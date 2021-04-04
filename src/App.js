@@ -32,6 +32,14 @@ function App() {
     return Number(hour)
   }
 
+  const menuClass = classNames('background', {
+    'background--morning': 7 < curr_time() <= 17,
+    'background--sunrise': 6 < curr_time() <=7,
+    'background--sunset': 17 < curr_time() <= 18,
+    'background--evening': 18 < curr_time <= 21,
+    'background--night': (21 < curr_time() <= 24) || 0 <= curr_time <= 6
+  });
+
   return (
     <div className="App">
       <Form onSubmit={handleSubmit} >
