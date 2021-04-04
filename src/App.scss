@@ -1,0 +1,25 @@
+.app {
+  text-align: center;
+  background-color: white;
+  height: 100vh;
+}
+
+.app--sunrise {
+  background-color: rgb(255, 136, 0);
+}
+
+.app--sunset {
+  background-color: rgb(174, 0, 255);
+}
+
+.app--morning {
+  background-color: rgb(49, 172, 243);
+}
+
+.app--evening {
+  background-color: rgb(94, 0, 182);
+}
+
+.app--night {
+  background-color: rgb(39, 0, 58);
+}

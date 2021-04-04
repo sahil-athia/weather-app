@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import { useEffect, useState } from 'react'
 import { Form, Button } from 'react-bootstrap';
 import axios from 'axios'; 
@@ -17,6 +17,7 @@ function App() {
         setError(false)
       })
       .catch(e => setError(true))
+
   }, [location])
 
   // console.log(data)
@@ -32,16 +33,18 @@ function App() {
     return Number(hour)
   }
 
-  const menuClass = classNames('background', {
-    'background--morning': 7 < curr_time() <= 17,
-    'background--sunrise': 6 < curr_time() <=7,
-    'background--sunset': 17 < curr_time() <= 18,
-    'background--evening': 18 < curr_time <= 21,
-    'background--night': (21 < curr_time() <= 24) || 0 <= curr_time <= 6
+  const time = data ? curr_time() : ""
+
+  const appClass = classNames('app', {
+    'app--morning': 7 <= time <= 17,
+    'app--sunrise': 6 <= time <=7,
+    'app--sunset': 17 <= time <= 18,
+    'app--evening': 18 <= time <= 21,
+    'app--night': (21 <= time <= 24) || 0 <= curr_time <= 6
   });
 
   return (
-    <div className="App">
+    <div className={appClass}>
       <Form onSubmit={handleSubmit} >
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Select Your Location</Form.Label>
