@@ -28,14 +28,20 @@ function App() {
   }
 
   const curr_time = () => {
+    let hour;
     const str = data.location.localtime;
-    const hour = str[11] + str[12]
+    if(str.length === 16) {
+      hour = str[11] + str[12]
+    } else if(str.length === 15) {
+      hour = str[11]
+    }
+    
     return Number(hour)
   }
 
   const time = data ? curr_time() : ""
 
-  const appClass = classNames('app', {
+  const appClass = classNames({
     'app--morning': 7 < time < 17,
     'app--sunrise': 6 <= time <=7,
     'app--sunset': 17 <= time <= 18,
