@@ -39,6 +39,18 @@ function App() {
     return Number(hour)
   }
 
+  const curr_time = () => {
+    let hour;
+    const str = data.location.localtime; 
+    if(str.length === 16) {
+      hour = str[11] + str[12] + str[13] + str[14] + str[15]
+    } else if(str.length === 15) {
+      hour = str[11] +  str[12] + str[13] + str[14]
+    }
+    
+    return hour
+  }
+
   const hour = data ? curr_hour() : ""
 
 
@@ -70,7 +82,7 @@ function App() {
           <span>{data.location.name}</span> <br></br>
           <span>it is: {data.current.feelslike_c} degrees celcius</span>
           <img src={data.current.condition.icon}></img>
-          <span>{curr_hour()}</span>
+          <span>{curr_time()}</span>
       </div>}
     </div>
   );
