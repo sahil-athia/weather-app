@@ -27,9 +27,9 @@ function App() {
       
   }
 
-  const curr_time = () => {
+  const curr_hour = () => {
     let hour;
-    const str = data.location.localtime;
+    const str = data.location.localtime; 
     if(str.length === 16) {
       hour = str[11] + str[12]
     } else if(str.length === 15) {
@@ -39,14 +39,15 @@ function App() {
     return Number(hour)
   }
 
-  const time = data ? curr_time() : ""
+  const hour = data ? curr_hour() : ""
 
-  const appClass = classNames({
-    'app--morning': 7 < time < 17,
-    'app--sunrise': 6 <= time <=7,
-    'app--sunset': 17 <= time <= 18,
-    'app--evening': 18 < time < 21,
-    'app--night': (21 <= time <= 24) || 0 < curr_time < 6
+
+  const appClass = classNames("app", {
+    'app--morning': 7 < hour < 17,
+    'app--sunrise': 6 <= hour <=7,
+    'app--sunset': 17 <= hour <= 18,
+    'app--evening': 18 < hour < 21,
+    'app--night': (21 <= hour <= 24) || 0 < hour < 6
   });
 
   return (
@@ -69,7 +70,7 @@ function App() {
           <span>{data.location.name}</span> <br></br>
           <span>it is: {data.current.feelslike_c} degrees celcius</span>
           <img src={data.current.condition.icon}></img>
-          <span>{curr_time()}</span>
+          <span>{curr_hour()}</span>
       </div>}
     </div>
   );
