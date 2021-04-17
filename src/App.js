@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react'
 import { Form, Button } from 'react-bootstrap';
 import axios from 'axios'; 
 import classNames from 'classnames';
+import Temp from "./components/Temp"
+
 const FAR = "FAR"
 const CEL = "CEL"
 
@@ -84,7 +86,9 @@ function App() {
       {data && !error && 
       <div>
           <span>{data.location.name}</span> <br></br>
-          <span>it is: {data.current.feelslike_c} degrees celcius</span>
+          <Temp 
+            cel={data.current.feelslike_c}
+          />
           <img src={data.current.condition.icon}></img>  
           <span>{curr_time()}</span>
       </div>}
