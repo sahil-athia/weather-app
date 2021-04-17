@@ -88,6 +88,7 @@ function App() {
           <span>{data.location.name}</span> <br></br>
           <Temp 
             cel={data.current.feelslike_c}
+            far={data.current.feelslike_f}
           />
           <img src={data.current.condition.icon}></img>  
           <span>{curr_time()}</span>
