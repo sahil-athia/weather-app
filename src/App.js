@@ -79,6 +79,7 @@ function App() {
           />
         </Form.Group>
       </Form>
+
       {error && <div>The weather for this location could not be found</div>}
       {data && !error && 
       <div>
