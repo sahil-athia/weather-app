@@ -5,11 +5,8 @@ import axios from 'axios';
 import classNames from 'classnames';
 import Temp from "./components/Temp"
 
-const FAR = "FAR"
-const CEL = "CEL"
-
 function App() {
-  const [temp, setTemo] = useState(CEL)
+  const [temp, setTemp] = useState("CEL")
   const [data, setData] = useState(false)
   const [location, setLocation] = useState("") 
   const [error, setError] = useState(false)
@@ -67,6 +64,7 @@ function App() {
     'app--night': (21 <= hour <= 24) || 0 < hour < 6
   });
 
+  console.log(temp)
   return (
     <div className={appClass}>
       <Form onSubmit={handleSubmit} >
@@ -89,6 +87,8 @@ function App() {
           <Temp 
             cel={data.current.feelslike_c}
             far={data.current.feelslike_f}
+            temp={temp}
+            setTemp = {setTemp}
           />
           <img src={data.current.condition.icon}></img>  
           <span>{curr_time()}</span>
