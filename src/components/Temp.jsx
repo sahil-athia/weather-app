@@ -11,8 +11,8 @@ export default function Temp(props) {
   return (
     <div>
       <button onClick={switchTemp}>{text}</button>
-      <h4>it is: {props.cel} degrees celcius</h4>
-      <h4>it is: {props.far} degrees fahrenheit</h4>
+      {props.temp === CEL && <h4>it is: {props.cel} degrees celcius</h4>}
+      {props.temp === FAR &&  <h4>it is: {props.far} degrees fahrenheit</h4>}
     </div>
   )
 }
