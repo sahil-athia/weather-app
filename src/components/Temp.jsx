@@ -1,3 +1,5 @@
+import "./Temp.scss"
+
 const FAR = "FAR"
 const CEL = "CEL"
 
@@ -11,8 +13,8 @@ export default function Temp(props) {
   return (
     <div>
       <button onClick={switchTemp}>{text}</button>
-      {props.temp === CEL && <h4>it is: {props.cel} degrees celcius</h4>}
-      {props.temp === FAR &&  <h4>it is: {props.far} degrees fahrenheit</h4>}
+      {props.temp === CEL && <h1 className="temp">{props.cel}°C</h1>}
+      {props.temp === FAR &&  <h1 className="temp">{props.far}°F</h1>}
     </div>
   )
 }
