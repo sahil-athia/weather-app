@@ -57,11 +57,11 @@ function App() {
 
 
   const appClass = classNames("app", {
-    'app--morning': 7 < hour < 17,
-    'app--sunrise': 6 <= hour <=7,
-    'app--sunset': 17 <= hour <= 18,
-    'app--evening': 18 < hour < 21,
-    'app--night': (21 <= hour <= 24) || 0 < hour < 6
+    'app--morning': 7 < hour && hour < 17,
+    'app--sunrise': 6 <= hour && hour <=7,
+    'app--sunset': 17 <= hour && hour <= 18,
+    'app--evening': 18 < hour && hour < 21,
+    'app--night': (21 <= hour && hour <= 24) || 0 < hour && hour < 6
   });
 
   console.log(temp)
@@ -91,7 +91,7 @@ function App() {
             setTemp = {setTemp}
           />
           <img src={data.current.condition.icon}></img>  
-          <span>{curr_time()}</span>
+          <p>Local Time: {curr_time()}</p>
       </div>}
     </div>
   );
