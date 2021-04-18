@@ -2,7 +2,7 @@ const FAR = "FAR"
 const CEL = "CEL"
 
 export default function Temp(props) {
-  const text = "change"
+  const text = props.temp === CEL ? "change to fahrenheit" : "change to celcius"
 
   const switchTemp = () => {
     const type = props.temp === CEL ? FAR : CEL 
