@@ -99,7 +99,8 @@ function App() {
           />
 
           <div className="info-box">
-
+            <p>Percipitation: {data.current.precip_mm}</p>
+            <p>UV Index: {data.current.uv}</p>
           </div>
       </div>}
     </div>
