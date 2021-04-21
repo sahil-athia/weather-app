@@ -14,7 +14,7 @@ export default function Temp(props) {
     <div>
       {props.temp === CEL && <h1 className="temp">{props.cel}°C</h1>}
       {props.temp === FAR &&  <h1 className="temp">{props.far}°F</h1>}
-      <button onClick={switchTemp}>{text}</button>
+      <button onClick={switchTemp} className="button">{text}</button>
     </div>
   )
 }
