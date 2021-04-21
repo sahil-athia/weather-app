@@ -83,10 +83,10 @@ function App() {
       {error && <div>The weather for this location could not be found</div>}
       {data && !error && 
       <div>
-          <span>{data.location.name}</span> <br></br>
-          <p>Local Time: {curr_time()}</p>
+          <span className="location">{data.location.name}</span> <br></br>
+          <p className="time">Local Time: {curr_time()}</p>
 
-          <div>
+          <div className="weather">
             <img src={data.current.condition.icon}></img> 
             <p>{data.current.condition.text}</p> 
           </div>

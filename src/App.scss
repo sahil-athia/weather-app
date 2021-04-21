@@ -3,12 +3,35 @@
   background-color: white;
   height: 100vh;
 
+  .location {
+    
+    font-size: 150%;
+  }
+
+  .time {
+    opacity: 0.5;
+  }
+
+  .weather {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 10%;
+    }
+  }
+
+
   .info-box {
+
     width: 90%;
     height: 20vh;
     margin-left: 5%;
     margin-right: 5%;
     background-color: rgba(255, 255, 255, 0.198);
+    border-radius: 10px;
 
     display: flex;
     flex-direction: row;
