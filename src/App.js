@@ -84,14 +84,23 @@ function App() {
       {data && !error && 
       <div>
           <span>{data.location.name}</span> <br></br>
+          <p>Local Time: {curr_time()}</p>
+
+          <div>
+            <img src={data.current.condition.icon}></img> 
+            <p>{data.current.condition.text}</p> 
+          </div>
+
           <Temp 
             cel={data.current.feelslike_c}
             far={data.current.feelslike_f}
             temp={temp}
             setTemp = {setTemp}
           />
-          <img src={data.current.condition.icon}></img>  
-          <p>Local Time: {curr_time()}</p>
+
+          <div className="info-box">
+
+          </div>
       </div>}
     </div>
   );

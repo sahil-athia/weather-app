@@ -12,9 +12,9 @@ export default function Temp(props) {
   }
   return (
     <div>
-      <button onClick={switchTemp}>{text}</button>
       {props.temp === CEL && <h1 className="temp">{props.cel}°C</h1>}
       {props.temp === FAR &&  <h1 className="temp">{props.far}°F</h1>}
+      <button onClick={switchTemp}>{text}</button>
     </div>
   )
 }
