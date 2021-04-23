@@ -45,7 +45,7 @@
 }
 
 .app--sunrise {
-  background-color: rgb(255, 136, 0);
+  background-image: linear-gradient( rgb(255, 136, 0), rgb(255, 217, 0));
 }
 
 .app--sunset {
@@ -63,5 +63,5 @@
 
 .app--night {
   color: white;
-  background-color: rgb(39, 0, 58);
+  background-image: linear-gradient( rgb(39, 0, 58), rgb(74, 1, 110));
 }
